@@ -24,7 +24,7 @@ public class TicketController {
         return "SimplePost";
     }
 
-    @GetMapping("/employees")
+    @GetMapping("/Tickets")
     List<Ticket> all(){
         return this.ticketService.getTickets();
     }

@@ -1,130 +1,112 @@
 package com.example.mk4;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
 import java.util.Date;
-public class Ticket {
-    private Integer TicketId;
-    private String Location;
-    private String Category;
-    private String TicketInfo;
-    private String ConfigurationItem;
-    private String Priority;
 
-    private Date Opened;
-    private String OpenedBy;
-    private String State;
-    private String AssignmentGroup;
-    private String AssignedTo;
-    private Date ClosedTime;
+public class Ticket {
+    private Integer ticketId;
+    private String location;
+    private String category;
+    private String ticketInfo;
+    private String configurationItem;
+    private String priority;
+
+    private Date opened;
+    private String openedBy;
+    private String state;
+    private String assignmentGroup;
+    private String assignedTo;
+    private Date closedTime;
 
     protected Ticket() {}
 
-    public Ticket(Integer id,String location, String category, String ticketInfo, String configurationItem,
-                        String priority, Date opened, String openedBy, String state,
-                        String assignmentGroup, String assignedTo, Date closedTime){
-
-        this.TicketId = id;
-        this.Location = location;
-        this.Category = category;
-        this.TicketInfo = ticketInfo;
-        this.ConfigurationItem = configurationItem;
-        this.Priority = priority;
-        this.Opened = opened;
-        this.OpenedBy = openedBy;
-        this.State = state;
-        this.AssignmentGroup = assignmentGroup;
-        this.AssignedTo = assignedTo;
-        this.ClosedTime = closedTime;
+    public Ticket(Integer ticketId, String location, String category, String ticketInfo, String configurationItem,
+                  String priority, Date opened, String openedBy, String state,
+                  String assignmentGroup, String assignedTo, Date closedTime){
+        this.ticketId = ticketId;
+        this.location = location;
+        this.category = category;
+        this.ticketInfo = ticketInfo;
+        this.configurationItem = configurationItem;
+        this.priority = priority;
+        this.opened = opened;
+        this.openedBy = openedBy;
+        this.state = state;
+        this.assignmentGroup = assignmentGroup;
+        this.assignedTo = assignedTo;
+        this.closedTime = closedTime;
     }
-
-//    public Ticket(String location, String category, String ticketInfo, String configurationItem,
-//                  String priority, Date opened, String openedBy, String state,
-//                  String assignmentGroup, String assignedTo, Date closedTime){
-//        this.Location = location;
-//        this.Category = category;
-//        this.TicketInfo = ticketInfo;
-//        this.ConfigurationItem = configurationItem;
-//        this.Priority = priority;
-//        this.Opened = opened;
-//        this.OpenedBy = openedBy;
-//        this.State = state;
-//        this.AssignmentGroup = assignmentGroup;
-//        this.AssignedTo = assignedTo;
-//        this.ClosedTime = closedTime;
-//    }
 
     // Getters
     public Integer getTicketId() {
-        return TicketId;
+        return ticketId;
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
     public String getTicketInfo() {
-        return TicketInfo;
+        return ticketInfo;
     }
 
     public String getConfigurationItem() {
-        return ConfigurationItem;
+        return configurationItem;
     }
 
     public String getPriority() {
-        return Priority;
+        return priority;
     }
 
     public Date getOpened() {
-        return Opened;
+        return opened;
     }
 
     public String getOpenedBy() {
-        return OpenedBy;
+        return openedBy;
     }
 
     public String getState() {
-        return State;
+        return state;
     }
 
     public String getAssignmentGroup() {
-        return AssignmentGroup;
+        return assignmentGroup;
     }
 
     public String getAssignedTo() {
-        return AssignedTo;
+        return assignedTo;
     }
 
     public Date getClosedTime() {
-        return ClosedTime;
+        return closedTime;
     }
 
-    public void setTicketId(Integer id) {this.TicketId = id;}
+    // Setters
+    public void setTicketId(Integer ticketId) {
+        this.ticketId = ticketId;
+    }
 
     // toString method
     @Override
     public String toString() {
         return "Ticket{" +
-                "TicketId='" + TicketId + '\'' +
-                ", Location='" + Location + '\'' +
-                ", Category='" + Category + '\'' +
-                ", TicketInfo='" + TicketInfo + '\'' +
-                ", ConfigurationItem='" + ConfigurationItem + '\'' +
-                ", Priority='" + Priority + '\'' +
-
-                ", Opened=" + Opened +
-                ", OpenedBy='" + OpenedBy + '\'' +
-                ", State='" + State + '\'' +
-                ", AssignmentGroup='" + AssignmentGroup + '\'' +
-                ", AssignedTo=" + AssignedTo +
-                ", ClosedTime=" + ClosedTime +
+                "ticketId='" + ticketId + '\'' +
+                ", location='" + location + '\'' +
+                ", category='" + category + '\'' +
+                ", ticketInfo='" + ticketInfo + '\'' +
+                ", configurationItem='" + configurationItem + '\'' +
+                ", priority='" + priority + '\'' +
+                ", opened=" + opened +
+                ", openedBy='" + openedBy + '\'' +
+                ", state='" + state + '\'' +
+                ", assignmentGroup='" + assignmentGroup + '\'' +
+                ", assignedTo='" + assignedTo + '\'' +
+                ", closedTime=" + closedTime +
                 '}';
     }
 }
+

@@ -16,6 +16,7 @@ public class TicketService {
     }
 
     public Ticket addTicket(Ticket ticket) {
+        System.out.println("came1");
         return ticketRepository.save(ticket);
     }
     public List<Ticket> getTickets() {return ticketRepository.findAll();}

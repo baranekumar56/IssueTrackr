@@ -1,7 +1,7 @@
 -- DROP TABLE IF EXISTS ticket
 
 CREATE TABLE ticket (
-    TicketId BIGINT NOT NULL PRIMARY KEY,
+    TicketId INTEGER AUTO_INCREMENT PRIMARY KEY,
     Location VARCHAR(20),
     Category VARCHAR(20),
     TicketInfo VARCHAR(50),

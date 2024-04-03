@@ -22,6 +22,7 @@ public class TicketRepository{
     public List<Ticket> findAll(){
         return jdbcClient.sql("SELECT * FROM ticket")
                 .query((t, rowNum)-> new Ticket(
+                        t.getInt("TicketId"),
                         t.getString("Location"),
                         t.getString("Category"),
                         t.getString("TicketInfo"),
@@ -38,6 +39,7 @@ public class TicketRepository{
     }
 
     public Ticket save(Ticket t){
+        System.out.println("came");
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcClient.sql("INSERT INTO ticket(Location,Category,TicketInfo,ConfigurationItem,Priority,Opened,OpenedBy,State,ClosedTime) VALUES(:Location,:Category,:TicketInfo,:ConfigurationItem,:Priority,:Opened,:OpenedBy,:State,:ClosedTime) ")
                 .params(Map.ofEntries(
@@ -57,9 +59,5 @@ public class TicketRepository{
         t.setTicketId(Integer.parseInt(Objects.requireNonNull(keyHolder.getKey()).toString()));
         return t;
     }
-
-
-
-
 }
 
