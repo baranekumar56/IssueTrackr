@@ -1,8 +1,8 @@
-package com.example.mk4;
+package com.example.mk4.Ticket;
 
 import java.util.List;
-import java.util.Objects;
 
+import com.example.mk4.models.Ticket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

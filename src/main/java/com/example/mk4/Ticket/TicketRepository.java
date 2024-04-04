@@ -1,5 +1,6 @@
-package com.example.mk4;
+package com.example.mk4.Ticket;
 
+import com.example.mk4.models.Ticket;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.jdbc.support.GeneratedKeyHolder;

@@ -1,5 +1,6 @@
-package com.example.mk4;
+package com.example.mk4.Ticket;
 
+import com.example.mk4.models.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

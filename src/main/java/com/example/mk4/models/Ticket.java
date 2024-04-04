@@ -1,4 +1,4 @@
-package com.example.mk4;
+package com.example.mk4.models;
 
 import java.util.Date;
 
