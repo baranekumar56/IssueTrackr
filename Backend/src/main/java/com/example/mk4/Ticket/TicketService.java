@@ -60,5 +60,9 @@ public class TicketService {
         }
         return null;
     }
+
+    public List<Ticket> findByInfo(String info){
+        return ticketRepository.searchByTicketInfo(info);
+    }
 }
 

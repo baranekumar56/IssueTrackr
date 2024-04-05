@@ -4,10 +4,17 @@ import java.util.Date;
 import java.util.List;
 
 import com.example.mk4.models.Ticket;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.HandlerInterceptor;
+
+
 
 @RestController
 @RequestMapping("Ticket/")
@@ -18,6 +25,22 @@ public class TicketController {
     public TicketController(TicketService ticketService){
         this.ticketService = ticketService;
     }
+
+//    @Controller
+//    public static class AuthInterceptor implements HandlerInterceptor{
+//        @Override
+//        public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception{
+//            HttpSession session = request.getSession();
+//            String email = (String) request.getAttribute("email");
+//            String password = (String) request.getAttribute("password");
+//            if(email == null){
+//                response.sendRedirect("/?error=login");
+//                return false;
+//            }
+//            return true;
+//
+//        }
+//    }
 
     @GetMapping("all")
     List<Ticket> all(){
@@ -56,6 +79,9 @@ public class TicketController {
         return ticketService.updateDept(id, dept) != null;
     }
 
-    
+    @PostMapping("search/{info}")
+    List<Ticket> search(@PathVariable String info){
+        return ticketService.findByInfo(info);
+    }
 
 }

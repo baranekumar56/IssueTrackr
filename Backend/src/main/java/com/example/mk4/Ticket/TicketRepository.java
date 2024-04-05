@@ -15,6 +15,11 @@ import java.util.Objects;
 
 public interface TicketRepository extends JpaRepository<Ticket,Integer>{
     List<Ticket> getTicketByDept(String dept);
+
+    @Modifying
+    @Query("SELECT t FROM Ticket t WHERE t.ticketInfo LIKE %:info%")
+    List<Ticket> searchByTicketInfo(String info);
+
     @Modifying
     @Transactional
     @Query("UPDATE Ticket t SET t.state = :state WHERE t.id = :id")
@@ -29,6 +34,8 @@ public interface TicketRepository extends JpaRepository<Ticket,Integer>{
     @Modifying
     @Query("UPDATE Ticket t SET t.closedTime = :closedTime WHERE t.id = :id")
     Integer updateTicketByClosedTime(Integer id,Date closedTime);
+
+
 
     @Transactional
     @Modifying
