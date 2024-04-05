@@ -1,22 +1,23 @@
 # DROP TABLE IF EXISTS ticket
 
 CREATE TABLE ticket (
-    TicketId INTEGER AUTO_INCREMENT PRIMARY KEY,
-    Location VARCHAR(20),
-    Category VARCHAR(20),
-    TicketInfo VARCHAR(50),
-    ConfigurationItem VARCHAR(10),
-    Priority INTEGER,
-    Opened Date,
-    OpenedBy VARCHAR(20),
-    State INTEGER,
-    AssignedTo VARCHAR(20),
-    ClosedTime Date
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    location VARCHAR(20),
+    category VARCHAR(20),
+    ticket_info VARCHAR(50),
+    configuration_item VARCHAR(10),
+    priority INTEGER,
+    opened Date,
+    opened_by VARCHAR(20),
+    state INTEGER,
+    assigned_to VARCHAR(20),
+    closed_time Date,
+    dept VARCHAR(20)
 );
 
 
 
 CREATE TABLE resolvedTickets (
-     TicketId INTEGER PRIMARY KEY,
-     resolvedBy VARCHAR(20)
+     ticket_id INTEGER PRIMARY KEY,
+     resolved_by VARCHAR(20)
 );

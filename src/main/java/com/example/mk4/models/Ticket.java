@@ -1,9 +1,14 @@
 package com.example.mk4.models;
 
-import java.util.Date;
+import jakarta.persistence.*;
 
+import java.util.Date;
+@Entity
+@Table(name = "ticket")
 public class Ticket {
-    private Integer ticketId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String location;
     private String category;
     private String ticketInfo;
@@ -13,16 +18,16 @@ public class Ticket {
     private Date opened;
     private String openedBy;
     private String state;
-    private String assignmentGroup;
     private String assignedTo;
     private Date closedTime;
+    private String dept;
 
     protected Ticket() {}
 
     public Ticket(Integer ticketId, String location, String category, String ticketInfo, String configurationItem,
                   String priority, Date opened, String openedBy, String state,
-                  String assignmentGroup, String assignedTo, Date closedTime){
-        this.ticketId = ticketId;
+                  String assignedTo, Date closedTime,String dept){
+        this.id = ticketId;
         this.location = location;
         this.category = category;
         this.ticketInfo = ticketInfo;
@@ -31,14 +36,14 @@ public class Ticket {
         this.opened = opened;
         this.openedBy = openedBy;
         this.state = state;
-        this.assignmentGroup = assignmentGroup;
         this.assignedTo = assignedTo;
         this.closedTime = closedTime;
+        this.dept = dept;
     }
 
     // Getters
     public Integer getTicketId() {
-        return ticketId;
+        return id;
     }
 
     public String getLocation() {
@@ -73,10 +78,6 @@ public class Ticket {
         return state;
     }
 
-    public String getAssignmentGroup() {
-        return assignmentGroup;
-    }
-
     public String getAssignedTo() {
         return assignedTo;
     }
@@ -84,17 +85,18 @@ public class Ticket {
     public Date getClosedTime() {
         return closedTime;
     }
+    public String getDept() { return dept; }
 
     // Setters
     public void setTicketId(Integer ticketId) {
-        this.ticketId = ticketId;
+        this.id = ticketId;
     }
 
     // toString method
     @Override
     public String toString() {
         return "Ticket{" +
-                "ticketId='" + ticketId + '\'' +
+                "ticketId='" + id + '\'' +
                 ", location='" + location + '\'' +
                 ", category='" + category + '\'' +
                 ", ticketInfo='" + ticketInfo + '\'' +
@@ -103,7 +105,7 @@ public class Ticket {
                 ", opened=" + opened +
                 ", openedBy='" + openedBy + '\'' +
                 ", state='" + state + '\'' +
-                ", assignmentGroup='" + assignmentGroup + '\'' +
+                ", assignmentGroup='" + '\'' +
                 ", assignedTo='" + assignedTo + '\'' +
                 ", closedTime=" + closedTime +
                 '}';

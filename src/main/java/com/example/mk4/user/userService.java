@@ -1,4 +1,4 @@
-package com.example.mk4.Login;
+package com.example.mk4.user;
 
 import com.example.mk4.models.user;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class LoginService {
-    LoginRepo loginRepo;
+public class userService {
+    userRepository loginRepo;
     @Autowired
-    public LoginService(LoginRepo repo){
+    public userService(userRepository repo){
         this.loginRepo = repo;
     }
 

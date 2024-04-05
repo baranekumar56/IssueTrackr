@@ -1,22 +1,27 @@
-package com.example.mk4.Login;
+package com.example.mk4.user;
 
 import com.example.mk4.models.user;
-import com.mysql.cj.log.Log;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-public class LoginController {
-    LoginService loginService;
+public class userController {
+    userService userService;
 
-    public LoginController(LoginService service){
-        this.loginService = service;
+    public userController(userService service){
+        this.userService = service;
     }
     @GetMapping("/login")
     public String sendLogin(){
         return "Login page";
     }
 
+    @GetMapping("/all")
+    public List<user> listAll(){
+        return userService.loginRepo.findAll();
+    }
     @GetMapping("/signup")
     public String sendSignup(){
         return "Signup page";
@@ -24,14 +29,17 @@ public class LoginController {
 
     @PutMapping("/signup")
     public user signup(@RequestBody user u){
-        return loginService.signup(u);
+        return userService.signup(u);
     }
 
 
     @PostMapping("/login/validation")
     public String validate(@RequestBody user u){
-        if(loginService.empValidation(u))
+        if(userService.empValidation(u))
             return "Present";
         return "Not Present";
     }
+
+
 }
+
