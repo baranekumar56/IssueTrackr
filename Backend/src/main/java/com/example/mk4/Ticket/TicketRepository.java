@@ -25,6 +25,11 @@ public interface TicketRepository extends JpaRepository<Ticket,Integer>{
     @Query("UPDATE Ticket t SET t.state = :state WHERE t.id = :id")
     Integer updateTicketByState(Integer id,String state);
 
+    @Modifying
+    @Transactional
+    @Query("UPDATE Ticket t SET t.state = :state,t.assignedTo = :assignedTo WHERE t.id = :id")
+    Integer updateTicketByStateAndAssignedTo(Integer id,String state,String assignedTo);
+
     @Transactional
     @Modifying
     @Query("UPDATE Ticket t SET t.assignedTo = :assignedTo WHERE t.id = :id")
@@ -41,5 +46,10 @@ public interface TicketRepository extends JpaRepository<Ticket,Integer>{
     @Modifying
     @Query("UPDATE Ticket t SET t.dept = :dept WHERE t.id = :id")
     Integer updateTicketByDept(Integer id,String dept);
+
+
+    @Query("SELECT t FROM Ticket t WHERE t.dept LIKE %:dept%")
+    List<Ticket> findTicketByDept(String dept);
+
 }
 

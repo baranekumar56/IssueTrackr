@@ -19,20 +19,24 @@ public class TicketService {
     }
 
     public Ticket addTicket(Ticket ticket) {
-        System.out.println("came1");
         return ticketRepository.save(ticket);
     }
     public List<Ticket> getTickets() {return ticketRepository.findAll();}
 
-    public List<Ticket> getPending(String dept){
-        return ticketRepository.getTicketByDept(dept);
+
+    public Integer updateStateAndAssignedTo(Ticket st){
+        return ticketRepository.updateTicketByStateAndAssignedTo(st.getTicketId(),st.getState(),st.getAssignedTo());
     }
 
-    public Integer updateState(Integer id,String state){
-        Optional<Ticket> optional = ticketRepository.findById(id);
+    public void deleteTicket(Ticket t){
+        ticketRepository.delete(t);
+    }
+
+    public Integer updateState(Ticket st){
+        Optional<Ticket> optional = ticketRepository.findById(st.getTicketId());
         if(optional.isPresent())
         {
-            return ticketRepository.updateTicketByState(id,state);
+            return ticketRepository.updateTicketByState(st.getTicketId(),st.getState());
         }
         return null;
     }
@@ -59,6 +63,11 @@ public class TicketService {
             return ticketRepository.updateTicketByDept(id,dept);
         }
         return null;
+    }
+
+    public List<Ticket> findTicketByDept(String dept){
+        List<Ticket> optional = ticketRepository.findTicketByDept(dept);
+        return optional;
     }
 
     public List<Ticket> findByInfo(String info){

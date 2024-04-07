@@ -1,0 +1,45 @@
+.sidenav {
+    height: 100%;
+    width: 220px; /* Adjust width as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black; /* Background color */
+    overflow-x: hidden;
+    padding-top: 20px; /* Space at the top */
+  }
+  
+  .sidenav a {
+    padding: 10px 15px; /* Padding for links */
+    text-decoration: none;
+    color: #333; /* Link color */
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    background-color: white; /* Hover background color */
+  }
+
+  a{
+    color: white;
+    font-weight: bold;
+  }
+  
+  .user{
+    color: white;
+   
+  }
+  .user_icon{
+    width: 80%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    font-size: 13px;
+  }
+  .barane{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    margin-top: 12px;
+  }

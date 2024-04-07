@@ -2,6 +2,8 @@ package com.example.mk4.models;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "user")
 public class user {
@@ -90,5 +92,19 @@ public class user {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", branch='" + branch + '\'' +
+                ", role='" + role + '\'' +
+                ", dept='" + dept + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
