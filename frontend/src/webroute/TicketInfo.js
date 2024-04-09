@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import Footer from '../components/footer';
+import Header from '../components/header';
 import '../css/ticketComponent.css';
-import $, { data } from 'jquery';
+import $ from 'jquery';
 
 const TicketInfo = ({ticket}) => {
-    const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("user"));
     if (user===null){
       window.location.replace('/')
@@ -20,7 +20,9 @@ const TicketInfo = ({ticket}) => {
       console.log(newticket)
     return (
         <>
+          <Header />
           <TicketInfoComponent ticket={newticket} user={user}/>
+          <Footer />
         </>
     );
 
@@ -39,9 +41,7 @@ const ShowAssignedPerson = (assignedTo) => {
     
 
 const TicketInfoComponent = ({ ticket , user}) => {
-  console.log("helloon")
   const [ticketState, setTicketState] = useState(ticket.state);
-    const navigate = useNavigate();
 
     const UpdateState = async () => {
 

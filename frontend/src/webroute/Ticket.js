@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import $ from 'jquery';
-import '../css/Ticket.css';
+// import '../css/Ticket.css';
+import Footer from '../components/footer';
+import Header from '../components/header';
 import {Redirect} from 'react';
 import { useNavigate } from "react-router-dom";
 
@@ -16,12 +18,13 @@ function Ticket() {
     {
         return(
           <>
+            <Header />
             <FormComponent />
+            <Footer />
           </>
         );
     }
 }
-export default Ticket;
 
 const FormComponent = () => {
   const navigate = useNavigate();
@@ -175,6 +178,6 @@ const FormComponent = () => {
     </div>
     
   );
-                        }
+}
 
-
+export default Ticket;

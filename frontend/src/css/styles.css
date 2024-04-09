@@ -40,11 +40,13 @@ h3{
 }
 
 .ticketblock{
+    width: 95%;
     box-shadow: 5px 5px 10px black;
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
     box-shadow: 10px;
+    cursor: pointer ;
 }
 
 .workinprogress{
@@ -60,8 +62,7 @@ h3{
 }
 
 .ticketcontainer{
-    margin-left: 220px;
-    z-index: 1;
+    overflow-x: hidden;
 }
 
 /* Style for individual ticket items */
@@ -75,5 +76,5 @@ h3{
 
   .managed-by{
     position: relative;
-    left: 950px;
+    left: 920px;
   }
